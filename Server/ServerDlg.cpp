@@ -502,13 +502,13 @@ LRESULT CServerDlg::SockMsg(WPARAM wParam, LPARAM lParam)
 							t = 1;
 						}
 						else {
-							if (strResult[2] == _T("B?"))
+							if (strResult[2] == _T("BĐ"))
 								t = root[u8"B\u0110"]["cases"].asInt();
-							else if (strResult[2] == _T("?N"))
+							else if (strResult[2] == _T("ĐN"))
 								t = root[u8"\u0110N"]["cases"].asInt();
-							else if (strResult[2] == _T("?G"))
+							else if (strResult[2] == _T("ĐG"))
 								t = root[u8"\u0110G"]["cases"].asInt();
-							else if (strResult[2] == _T("?B"))
+							else if (strResult[2] == _T("ĐB"))
 								t = root[u8"\u0110B"]["cases"].asInt();
 							else
 								t = root[province_name]["cases"].asInt();
