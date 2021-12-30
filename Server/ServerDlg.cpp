@@ -170,7 +170,6 @@ void CServerDlg::OnBnClickedListen()
 	number_Socket = 0;
 	pSock = new SockName[200];
 	srand((unsigned)time(NULL));
-	R = rand();
 }
 
 
@@ -595,11 +594,11 @@ void CServerDlg::OnBnClickedClone()
 		else {
 			int size = check.size() - 1;
 			if (check[size]["hour"].asInt() == now->tm_hour) {
-				if (check[size]["minute"].asInt() >= now->tm_min - 30)
+				if (check[size]["minute"].asInt() > now->tm_min - 60)
 					allow_clone = false;
 			}
 			if (check[size]["hour"].asInt() == (now->tm_hour - 1)) {
-				if (check[size]["minute"].asInt() >= now->tm_min + 30)
+				if (check[size]["minute"].asInt() > now->tm_min + 60)
 					allow_clone = false;
 			}
 		}
@@ -609,7 +608,7 @@ void CServerDlg::OnBnClickedClone()
 	//Processing json file
 	ofstream output_file;
 	if (!allow_clone) {
-		MessageBox(_T("Already cloned in nearest 30 minutes"), _T("ERROR"), 0);
+		MessageBox(_T("Already cloned in nearest 60 minutes"), _T("ERROR"), 0);
 	}
 	else {
 		string response_string;
